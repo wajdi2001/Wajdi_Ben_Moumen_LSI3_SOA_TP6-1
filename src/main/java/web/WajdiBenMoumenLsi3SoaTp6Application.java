@@ -22,7 +22,7 @@ public class WajdiBenMoumenLsi3SoaTp6Application {
     }
 
     @Bean
-    public CommandLineRunner initData(CompteRepository compteRepository) {
+    public CommandLineRunner start (  CompteRepository compteRepository) {
         return args -> {
             // Ajout de données de compte initiales
             Compte compte1 = new Compte();
@@ -47,12 +47,10 @@ public class WajdiBenMoumenLsi3SoaTp6Application {
             compte4.setDateCreation(new Date());
             compte4.setType(Compte.typeCompte.EPARGNE);
             compte4.setEtat(Compte.etatCompte.ACTIVE);
-
             // Sauvegarde des comptes dans le référentiel
             compteRepository.save(compte1);
             compteRepository.save(compte2);
             compteRepository.save(compte3);
-
             // Affichage des soldes des comptes enregistrés dans la console
             compteRepository.findAll().forEach(compte -> System.out.println(" compte #" + compte.getId() + ": " +"  Type de compte:  "+compte.getType()+"  Etat de compte:  "+compte.getEtat() + "  Solde du compte :"+compte.getSolde()));
 
