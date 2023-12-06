@@ -37,11 +37,7 @@ public class WajdiBenMoumenLsi3SoaTp6Application {
             compte2.setType(Compte.typeCompte.EPARGNE);
             compte2.setEtat(Compte.etatCompte.ACTIVE);
 
-            Compte compte3 = new Compte();
-            compte3.setSolde(3000.0);
-            compte3.setDateCreation(new Date());
-            compte3.setType(Compte.typeCompte.COURANT);
-            compte3.setEtat(Compte.etatCompte.SUSPENDU);
+
             Compte compte4 = new Compte();
             compte4.setSolde(60000.0);
             compte4.setDateCreation(new Date());
@@ -50,7 +46,7 @@ public class WajdiBenMoumenLsi3SoaTp6Application {
             // Sauvegarde des comptes dans le référentiel
             compteRepository.save(compte1);
             compteRepository.save(compte2);
-            compteRepository.save(compte3);
+
             // Affichage des soldes des comptes enregistrés dans la console
             compteRepository.findAll().forEach(compte -> System.out.println(" compte #" + compte.getId() + ": " +"  Type de compte:  "+compte.getType()+"  Etat de compte:  "+compte.getEtat() + "  Solde du compte :"+compte.getSolde()));
 
